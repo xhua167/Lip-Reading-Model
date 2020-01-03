@@ -27,9 +27,9 @@
 1）使用google colab作为平台进行训练                             
 2）确保数据集的导入的路径无误               
 3）运行lipread_cnnbackend.py （或可将代码转移至jupyter notebook），该步用0.0003的lr训练30个eporch（0.9的momentum和0.0001的weight decay）。Val acc可达到40%。          
-4）运行lstm_init.py，该步启用lstm代替cnn用于预测，首先为lstm层寻找到较佳的初始参数。用0.05的lr训练5个eporch，Val acc略高与前者。    
+4）运行lstm_init.py，该步启用lstm代替cnn用于预测，首先为lstm层寻找到较佳的初始参数。用0.05的lr训练5个eporch，Val acc略高于前者。    
 5）运行end_to_end.py，该步导入前者的训练结果并解冻所有参数，用0.0003的lr训练30个eporch（0.9的momentum和0.0001的weight decay）。Val acc可达到60+%。              
 6）运行predict.py生成预测结果，最终A榜和B榜得分分别为69.2%和70.8%。        
 
-如代码有任何bug,欢迎指出！           
+如代码如有任何bug,欢迎指出！           
 
