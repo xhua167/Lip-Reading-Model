@@ -641,7 +641,7 @@ indices = list(range(dataset_len))
 
 dataset_len = len(training_dataset.data)
 # Randomly splitting indices:
-val = False # set to true if validation in local pc
+val = True # set to true if validation in local pc
 if val:
   validation_split = 0.2
   val_len = int(np.floor(validation_split * dataset_len))
