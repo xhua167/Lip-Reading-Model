@@ -21,8 +21,8 @@
 竞赛地址：https://www.dcjingsai.com/common/cmpt/2019%E5%B9%B4%E2%80%9C%E5%88%9B%E9%9D%92%E6%98%A5%C2%B7%E4%BA%A4%E5%AD%90%E6%9D%AF%E2%80%9D%E6%96%B0%E7%BD%91%E9%93%B6%E8%A1%8C%E9%AB%98%E6%A0%A1%E9%87%91%E8%9E%8D%E7%A7%91%E6%8A%80%E6%8C%91%E6%88%98%E8%B5%9B-AI%E7%AE%97%E6%B3%95%E8%B5%9B%E9%81%93_%E7%AB%9E%E8%B5%9B%E4%BF%A1%E6%81%AF.html            
 本人代码主要在 https://github.com/tstafylakis/Lipreading-ResNet 的基础上进行调整和修改，感谢先生的无私分享。     
 该模型主要分3部分：          
-1）训练一个3DCNN作为front end来抽取特征， 2DCNN作为back end进行预测。            
-2）将3DCNN部分的参数进行freeze，抛弃掉2DCNN的部分，连接一个 2 layers Bilstm，用较大的学习率训练较少的eporch来为lstm层找到较好的初始学习率。   
+1）使用一个3DCNN作为front end来抽取动态的嘴部特征，再将其结果(one per timestep)输入一个resnet34的结构（不用pretrained参数)，最后以一个2DCNN作为back end进行预测。            
+2）将3DCNN以及resnet部分的参数进行freeze，抛弃掉2DCNN的部分，连接一个 2 layers Bilstm，用较大的学习率训练较少的eporch来为lstm层找到较好的初始学习率。   
 3）将导入2）中的模型，解冻所有参数，用很小的学习率，端对端的训练我们的最终模型。          
 模型运行流程如下：              
 1）使用google colab作为平台进行训练                             
